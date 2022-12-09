@@ -8,7 +8,7 @@ const deleteBook = (e) => {
     );
     localStorage.setItem('books', JSON.stringify(filteredBooks));
     showListBook();
-  }
+  };
 };
 
 export default deleteBook;
