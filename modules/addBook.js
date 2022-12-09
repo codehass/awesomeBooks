@@ -6,9 +6,7 @@ const author = document.querySelector('.author');
 const addBook = (e) => {
   e.preventDefault();
   let books;
-  books = JSON.parse(localStorage.getItem('books')) !== null
-      ? (books = JSON.parse(localStorage.getItem('books')))
-      : [];
+  books = JSON.parse(localStorage.getItem('books')) !== null ? (books = JSON.parse(localStorage.getItem('books'))) : [];
 
   const book = {
     id: 0,
