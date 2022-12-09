@@ -6,7 +6,7 @@ const deleteBook = (e) => {
     const filteredBooks = JSON.parse(localStorage.getItem('books')).filter((book) => book.id !== +id);
     localStorage.setItem('books', JSON.stringify(filteredBooks));
     showListBook();
-  };
+  }
 };
 
 export default deleteBook;
