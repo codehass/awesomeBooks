@@ -4,46 +4,63 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Awesome Books</title>
     <link rel="stylesheet" href="index.css" />
+    <title>Awesome books</title>
   </head>
+
   <body>
-    <header>
-      <nav>
-        <p class="logo">Awesome books</p>
-        <ul>
-          <li><a href="index.html">List</a></li>
-          <li><a href="">Add New</a></li>
-          <li><a href="">Contact</a></li>
+    <header class="content">
+      <nav class="nav-bar">
+        <h1 class="awesome-logo">Awesome books</h1>
+        <ul class="list-items">
+          <li><a href="#" id="listId">List</a></li>
+          <li><a href="#" id="addBookId">Add new</a></li>
+          <li><a href="#" id="contactId">Contact</a></li>
         </ul>
       </nav>
     </header>
-    <h1>Awesome books</h1>
-    <section class="record"></section>
+    <!-- ************* -->
+    <div class="showBook-section" id="showSection">
+      <div class="date">
+        <p id="date"></p>
+      </div>
+      <h1 class="title1">All awesome books</h1>
+      <div class="book-list">
+        <!-- Books added here -->
+      </div>
+    </div>
+    <div class="addBook-section" id="addSection">
+      <!-- <hr> -->
 
-    <!-- add books  -->
-    <form class="form">
-      <h1>Add awesome books</h1>
-      <input type="text" placeholder="Title" class="title" />
-      <input type="text" placeholder="Author" class="author" />
-      <span></span>
-      <button type="button" onclick="newBook()">Add</button>
-    </form>
-    <!-- contact  -->
-    <!-- <section class="contact">
-      <h1>Contact information</h1>
-      <p>Do have any questions or you just want to say "Hello"?</p>
-      <p>You can rech out to us!</p>
-      <ul>
-        <li>Our e-mail: mail@mail.com</li>
-        <li>Our phone number: 00435865534422</li>
-        <li>Our address: Streetname 22, 84503 City, Country</li>
-      </ul>
+      <section class="addbok">
+        <h1 class="title2">Add a new book</h1>
+        <div class="book-list">
+          <input type="text" class="title" placeholder="Title" />
+          <input type="text" class="author" placeholder="Author" />
+          <button class="add-btn">Add</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ************ -->
+    <section class="contact-section" id="contanct">
+      <div class="contact-info">
+        <h2 class="contact-heading">Contact Information</h2>
+        <p class="contact-para">
+          Do you have any questions or you just want to say "Hello"?. <br />
+          You can reach out to us!
+        </p>
+        <ul class="list">
+          <li>Our e-mail: mail@mail.com</li>
+          <li>Our Phone numbers :0043586534422</li>
+          <li>Our Address: Streetname 22, 84503 City, Country.</li>
+        </ul>
+      </div>
     </section>
-    <footer>
-      <div class="logo">Awesome Books</div>
-      <p>&copy; All rights are reserved</p>
-    </footer> -->
-    <script src="index.js" type="module"></script>
+    <footer class="footer">
+      <div class="copyright">Awesome Books</div>
+      <p>© All rights are reserved</p>
+    </footer>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>

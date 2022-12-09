@@ -1,75 +1,45 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-unused-vars */
-// import { Book } from './module/test.js';
+import { addBook } from './modules/addBook.js';
+import { showListBook } from './modules/showListBook.js';
+import { deleteBook } from './modules/deleteBook.js';
+import { DateTime } from './modules/luxon.js';
 
-const showBooks = document.querySelector('.record');
-const Title = document.querySelector('.title');
-const Author = document.querySelector('.author');
-const btn = document.querySelector('.form button');
+const displayTime = document.getElementById('date');
+const datetime = DateTime.utc().toLocaleString(DateTime.DATETIME_FULL);
+displayTime.textContent = datetime;
 
-class Book {
-  constructor() {
-    this.books = [];
-  }
+const addBtn = document.querySelector('.add-btn');
+const bookList = document.querySelector('.book-list');
 
-  addBook(obj) {
-    this.books = JSON.parse(localStorage.getItem('data'));
-    if (this.books === null) {
-      this.books = [];
-      localStorage.setItem('data', this.books);
-      this.books.push(obj);
-      localStorage.setItem('data', JSON.stringify(this.books));
-      window.location.reload();
-    } else {
-      this.books.push(obj);
-      localStorage.setItem('data', JSON.stringify(this.books));
-      window.location.reload();
-    }
-  }
+addBtn.addEventListener('click', addBook);
+bookList.addEventListener('click', deleteBook);
+document.addEventListener('DOMContentLoaded', showListBook);
 
-  removeBook(id) {
-    this.books = JSON.parse(localStorage.getItem('data'));
-    this.books = this.books.filter((i) => i?.id !== id);
-    localStorage.setItem('data', JSON.stringify(this.books));
-    window.location.reload();
-  }
-}
+const listLinkId = document.getElementById('listId');
+const addBooksLinkId = document.getElementById('addBookId');
+const contactLinkId = document.getElementById('contactId');
 
-const bookc = new Book();
+const showBookSection = document.querySelector('.showBook-section');
+const addBookSection = document.querySelector('.addBook-section');
+const contactSection = document.querySelector('.contact-section');
 
-btn.addEventListener('click', () => {
-  if (Title.value === '' || Author.value === '') {
-    document.querySelector('.form > span').textContent =
-      'All fields are required!';
-  } else {
-    const bookObj = {
-      id: new Date().getUTCMilliseconds(),
-      title: Title.value,
-      author: Author.value,
-    };
-    bookc.addBook(bookObj);
-  }
-  console.log('2', bookc);
+showBookSection.style.display = 'block';
+addBookSection.style.display = 'none';
+contactSection.style.display = 'none';
+
+listLinkId.addEventListener('click', () => {
+  showBookSection.style.display = 'block';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'none';
 });
-console.log('3', bookc);
 
-// Locale storage
+addBooksLinkId.addEventListener('click', () => {
+  showBookSection.style.display = 'none';
+  addBookSection.style.display = 'block';
+  contactSection.style.display = 'none';
+});
 
-window.addEventListener('DOMContentLoaded', () => {
-  const books = JSON.parse(localStorage.getItem('data'));
-  showBooks.innerHTML = books
-    .map(
-      (i) => `
-      <div class="element">
-      <h5>${i?.title} by ${i?.author} </h5>
-      <button onClick='bookc.removeBook(${i?.id})' >Remove</button>
-      </div>
-      `
-    )
-    .join('');
-
-  // document.querySelectorAll('.remove').forEach((e) => {
-  //   // e.classList.add('newBook');
-  //   e.remove();
-  // });
+contactLinkId.addEventListener('click', () => {
+  showBookSection.style.display = 'none';
+  addBookSection.style.display = 'none';
+  contactSection.style.display = 'block';
 });
